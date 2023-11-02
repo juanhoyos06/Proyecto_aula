@@ -1,0 +1,242 @@
+{% load static %}
+{% load custom_filters %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+        <div class="container pl-0">
+            <a class="navbar-brand m-0 p-0" href="/">
+                <img src="https://th.bing.com/th/id/R.b5e54fc1eb2beb3c9f6fa39df88fc53b?rik=u0GT3OVObojcwA&riu=http%3a%2f%2fwww.agenciaupi.com%2fimages%2fLogoUniversidades%2f3Logo-Medellin.png&ehk=SIudGjPUDoqst2k3IXyWTNdIzg25UquceZEDIQysdeY%3d&risl=&pid=ImgRaw&r=0"
+                    alt="bootstrap" height="80" class="navbar-brand m-0 p-0">
+            </a>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link text-danger" href="/">Refrescar <span
+                                class="visually-hidden">(current)</span></a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <br>
+
+    <div class="card text-center w-50  h-50 mx-auto">
+        <div class="card-header">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="fileFormat-tab" data-bs-toggle="tab"
+                        data-bs-target="#fileFormat-tab-pane" type="button" role="tab"
+                        aria-controls="fileFormat-tab-pane" aria-selected="true">Formato Archivo</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="uploadFile-tab" data-bs-toggle="tab"
+                        data-bs-target="#uploadFile-tab-pane" type="button" role="tab"
+                        aria-controls="uploadFile-tab-pane" aria-selected="false">Subir archivo</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="viewData-tab" data-bs-toggle="tab" data-bs-target="#viewData-tab-pane"
+                        type="button" role="tab" aria-controls="viewData-tab-pane" aria-selected="false">Visualizar
+                        datos</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="results-tab" data-bs-toggle="tab" data-bs-target="#results-tab-pane"
+                        type="button" role="tab" aria-controls="results-tab-pane" aria-selected="false">Medidas</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="graphics-tab" data-bs-toggle="tab" data-bs-target="#graphics-tab-pane"
+                        type="button" role="tab" aria-controls="graphics-tab-pane"
+                        aria-selected="false">Histogramas</button>
+                </li>
+
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="fileFormat-tab-pane" role="tabpanel"
+                    aria-labelledby="fileFormat-tab" tabindex="0" style="max-height: 300px; overflow-y: auto;">
+                    <br>
+                    <h2>Instrucciones para el Formato de Excel</h2>
+                    <br>
+                    <h6>Para garantizar el correcto procesamiento de su archivo Excel, le solicitamos que siga el
+                        siguiente formato estandarizado.</h6><br>
+                    <ol>
+
+                        <li>Asegúrese de que la primera fila de su archivo Excel contenga los encabezados de las
+                            columnas. Estos encabezados deben ser claros y concisos para que el sistema pueda
+                            identificarlos adecuadamente.</li><br>
+
+                        <li>Por favor, use celdas con formato de texto para las entradas alfanuméricas y celdas con
+                            formato numérico para las entradas de números. Evite usar fórmulas o referencias a otras
+                            celdas en el archivo que está subiendo.</li><br>
+
+                        <li>Le recomendamos no dejar celdas vacías en medio de sus datos, ya que esto podría causar
+                            inconsistencias en el análisis. Si no tiene un valor específico para ingresar, considere
+                            usar un valor de marcador, como 'N/A'.</li><br>
+
+                        <li>Por favor, incluya todos sus datos en una única hoja dentro del archivo Excel. Si el sistema
+                            detecta múltiples hojas, sólo procesará la primera.</li><br>
+
+                        <li>Asegúrese de que el tamaño de su archivo Excel no exceda los 10MB. Archivos más grandes
+                            pueden no ser procesados correctamente o pueden causar demoras en el análisis.</li><br>
+
+                        <li>Evite incluir imágenes, gráficos o cualquier otro objeto incrustado en el archivo Excel.
+                            Estos no serán procesados y podrían causar errores durante la lectura.</li><br>
+
+                        <li>Una vez que haya preparado su archivo siguiendo estas indicaciones, le recomendamos hacer
+                            una última revisión para asegurarse de que todo está en orden. Esto facilitará el proceso de
+                            análisis y garantizará resultados precisos.</li><br>
+
+                        <li>Si lo desea, puede descargar una plantilla de ejemplo <a
+                                href="media\plantilla_ejemplo.xlsx">aquí</a> que muestra el
+                            formato adecuado. Usar esta
+                            plantilla puede ayudar a reducir errores y agilizar el proceso.</li><br>
+
+                    </ol>
+
+
+
+                </div>
+                <div class="tab-pane fade" id="uploadFile-tab-pane" role="tabpanel" aria-labelledby="uploadFile-tab"
+                    tabindex="0">
+                    <br>
+                    Suba en este recuadro su archivo de excel con <br> los datos que desea analizar
+                    <br><br><br>
+                    <div class="custom-file">
+                        <form method="post" class="form-signin" action="#" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <input type="file" name="myfile">
+                            <button type="submit">Subir Archivo</button>
+                        </form>
+                        <br>
+                        {% if uploaded_file_url %}
+                        <p>Archivo subido en: <a href="{{ uploaded_file_url }}">{{ uploaded_file_url }}</a></p>
+                        {% endif %}
+                    </div>
+                    <br><br>
+
+                </div>
+                <div class="tab-pane fade" id="viewData-tab-pane" role="tabpanel" aria-labelledby="viewData-tab"
+                    tabindex="0" style="max-height: 300px; overflow-y: auto;">
+                    <br>
+                    Los datos que usted ingresó fueron los siguientes
+                    <br>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                {% for header in headers %}
+                                <th>{{ header }}</th>
+                                {% endfor %}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for row in rows %}
+                            <tr>
+                                {% for cell in row %}
+                                <td>{{ cell }}</td>
+                                {% endfor %}
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+
+                </div>
+                <div class="tab-pane fade" id="results-tab-pane" role="tabpanel" aria-labelledby="results-tab"
+                    tabindex="0" style="max-height: 400px; overflow-y: auto; max-width: auto;">
+                    <br>
+                    
+                    <br>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>
+
+                                </th>
+                                <th>
+                                    Media
+                                </th>
+
+                                <th>
+                                    Mediana
+                                </th>
+                                <th>
+                                    Moda
+                                </th>
+                                <th>
+                                    Varianza
+                                </th>
+                                <th>
+                                    Desviacion estandar
+                                </th>
+                                <th>
+                                    Error típico
+                                </th>
+
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for header in headers %}
+                            <tr>
+                                <td>
+                                    <strong>
+                                        {{header}}
+                                    </strong>
+                                </td>
+
+                                {% for item in central_tendency|get_item:header %}
+
+                                <td>
+                                    {{ item }}
+                                </td>
+                                {% endfor %}
+
+                                {% endfor %}
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+                </div>
+                <div class="tab-pane fade" id="graphics-tab-pane" role="tabpanel" aria-labelledby="graphics-tab"
+                    tabindex="0" style="max-height: 400px; overflow-y: auto; max-width: auto;">
+                    {% for histograma in histogramas %}
+
+                    <img src="{{histograma}}" alt="">
+                    <br>
+                    {% endfor %}
+
+
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</body>
+
+</html>
